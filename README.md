@@ -1,5 +1,7 @@
 ------------------------------------ DIY-OpenWrt-ROM ------------------------------------
 
+进入[![](https://img.shields.io/badge/Actions-All_workflows-orange.svg)](https://github.com/stroll101/actions/actions)页面 ----- 检测[![](https://img.shields.io/github/last-commit/coolsnowwolf/lede/master?color=yellow&label=%E6%BA%90%E7%A0%81%E6%9B%B4%E6%96%B0)](https://github.com/coolsnowwolf/lede)日期 ----- 进入[![](https://img.shields.io/badge/Releases-Download-blue.svg)](https://github.com/stroll101/actions/releases)页面 
+
 ## 编译方式 :
 树莓派_4B：默认引用 Lean 的 OpenWrt 源码，整合 Lienol 的 Packages 源码，根据自己的理解与需要，修改 IvanSolis1989 的 配置文件，精简了部分插件！
 
