@@ -180,7 +180,7 @@ jobs:
       uses: GitRML/delete-workflow-runs@main
       with:
         retain_days: 25
-        keep_minimum_runs: 15
+        keep_minimum_runs: 11
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
