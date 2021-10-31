@@ -17,7 +17,8 @@ rm -rf luci-theme-argon*/ ../lean/luci-theme-argon/ && git clone -b 18.06 https:
 # rm -rf luci-theme-infinityfreedom/ && git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom
 rm -rf luci-app-chinadns-ng/ && git clone https://github.com/WuSiYu/luci-app-chinadns-ng
 rm -rf openwrt-chinadns-ng/ && git clone https://github.com/pexcn/openwrt-chinadns-ng
-rm -rf trojan/ && svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/trojan
+# rm -rf trojan/ && svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/trojan
+rm -rf trojan/ && svn co https://github.com/Jrohy/trojan
 cd ../../
 
 
