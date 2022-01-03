@@ -99,7 +99,7 @@ jobs:
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
         with:
-          retain_days: 30
+          retain_days: 15
           keep_minimum_runs: 10         
 
       - name: Remove old Releases
@@ -107,5 +107,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
         with:
-          keep_latest: 100
+          keep_latest: 50
           delete_tags: true
