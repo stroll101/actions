@@ -24,20 +24,16 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
 jobs:
   build:
     runs-on: ubuntu-20.04    
     steps:
-    - name: Checkout
-      uses: actions/checkout@main      
-
     - uses: dev-drprasad/delete-older-releases@v0.2.0
       with:
         repo: stroll101/actions # defaults to current repo
-        keep_latest: 100
-        delete_tag_pattern: R2S # defaults to ""
+        keep_latest: 0
+        delete_tag_pattern: R2S"" # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
