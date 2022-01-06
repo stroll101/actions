@@ -36,7 +36,6 @@ jobs:
       uses: actions/checkout@main
       
     - name: Generate release tag
-      id: tag
       run: |
         echo "::set-output name=release_tag::$("R2S-*")"
         echo "::set-output name=status::success"
