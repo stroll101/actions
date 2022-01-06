@@ -37,18 +37,10 @@ jobs:
       
     - name: Generate release tag
       run: |
-        echo "::set-output name=release_tag::$("R2S-*")"
-        echo "::set-output name=status::success"
-    - name: Upload firmware to release
-      uses: softprops/action-gh-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
+        echo "::set-output name=R2S-*
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         delete_tags: true
       env:
