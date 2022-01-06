@@ -32,13 +32,6 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@main
-      
-    - name: Generate release tag
-      run: |
-        echo "::set-output name=R2S-*
-
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
       with:
