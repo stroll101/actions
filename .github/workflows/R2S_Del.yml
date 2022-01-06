@@ -38,7 +38,7 @@ jobs:
       with:
         repo: actions/R2S-* # defaults to current repo
         keep_latest: 15
-        delete_tags: true
-#        delete_tag_pattern: beta # defaults to ""
+#        delete_tags: true
+        delete_tag_pattern: R2S # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
