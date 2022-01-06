@@ -31,14 +31,10 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-    - name: Checkout
-      uses: actions/checkout@main
-
     - uses: dev-drprasad/delete-older-releases@v0.2.0
       with:
         repo: stroll101/actions # defaults to current repo
         keep_latest: 5
-#        delete_tags: true
-        delete_tag_pattern: R2S-Minimal- # defaults to ""
+        delete_tag_pattern: R1_Plus # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
