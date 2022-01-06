@@ -36,7 +36,7 @@ jobs:
 
     - uses: dev-drprasad/delete-older-releases@v0.2.0
       with:
-        repo: R2S # defaults to current repo
+        repo: actions/R2S # defaults to current repo
         keep_latest: 15
         delete_tags: true
 #        delete_tag_pattern: beta # defaults to ""
