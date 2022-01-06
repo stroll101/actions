@@ -20,12 +20,6 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-
-env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  TZ: Asia/Shanghai
-
 jobs:
   build:
     runs-on: ubuntu-20.04    
@@ -34,6 +28,6 @@ jobs:
       with:
         repo: stroll101/actions # defaults to current repo
         keep_latest: 0
-        delete_tag_pattern: R2 # defaults to ""
+        delete_tag_pattern: R1 # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
