@@ -34,6 +34,6 @@ jobs:
       with:
         repo: stroll101/actions # defaults to current repo
         keep_latest: 5
-        delete_tag_pattern: RaspberryPi4 # defaults to ""
+        delete_tag_pattern: R2S- # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
