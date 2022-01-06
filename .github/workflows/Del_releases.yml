@@ -33,7 +33,7 @@ jobs:
     - uses: dev-drprasad/delete-older-releases@v0.2.0
       with:
         repo: stroll101/actions # defaults to current repo
-        keep_latest: 0
-        delete_tag_pattern: R1_Plus # defaults to ""
+        keep_latest: 5
+        delete_tag_pattern: RaspberryPi4 # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
