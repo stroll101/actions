@@ -35,12 +35,18 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
       
+    - name: Generate release tag
+      id: tag
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      run: |
+        echo "::set-output name=release_tag::$("R2S-*")"
+        echo "::set-output name=status::success"
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ R2S-* }}
+        tag_name: ${{ steps.tag.outputs.release_tag }}
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
