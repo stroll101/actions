@@ -26,6 +26,10 @@ pushd package/community
 git clone --depth=1 https://github.com/Lienol/openwrt-package
 rm -rf ../lean/luci-app-kodexplorer
 
+# Add ucode (提交不完整)
+svn co https://github.com/openwrt/openwrt/tree/master/package/utils/ucode
+popd
+
 # Add luci-app-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
 
