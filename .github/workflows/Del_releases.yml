@@ -28,6 +28,6 @@ jobs:
       with:
         repo: stroll101/actions # defaults to current repo
         keep_latest: 50
-        delete_tags: Source # defaults to ""
+        delete_tags: "" # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
