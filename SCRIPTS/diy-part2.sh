@@ -30,9 +30,6 @@ rm -rf ../lean/luci-app-kodexplorer
 svn co https://github.com/openwrt/openwrt/tree/master/package/utils/ucode
 popd
 
-# Add amule 
-git clone --depth=1 https://github.com/amule-project/amule.git
-
 # Add luci-app-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
 
