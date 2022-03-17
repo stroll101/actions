@@ -27,6 +27,9 @@ pushd package/community
 #rm -rf ../lean/luci-app-kodexplorer
 
 # Add kenzo small-package
+git clone https://github.com/kenzok8/small-package
+
+# Add kenzo small-package
 git clone --depth=1 https://github.com/kenzok8/small-package
 rm -rf ../lean/luci-app-kodexplorer
 
