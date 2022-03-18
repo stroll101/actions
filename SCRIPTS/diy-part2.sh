@@ -66,6 +66,7 @@ git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 
 # Add luci-app-adguardhome
 #git clone --depth=1 https://github.com/SuLingGG/luci-app-adguardhome
+git clone --depth=1 https://github.com/kenzok8/small-package/tree/main/luci-app-adguardhome
 
 # Add luci-app-diskman
 git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman
