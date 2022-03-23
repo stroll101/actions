@@ -34,7 +34,7 @@ rm -rf ../lean/luci-app-kodexplorer
 svn co https://github.com/openwrt/openwrt/tree/master/package/utils/ucode
 
 # Add libcryptopp 8.6
-git clone --depth=1 https://github.com/weidai11/cryptopp.git
+git clone --depth=1  https://github.com/weidai11/cryptopp.git
 
 # Add amule
 #git clone --depth=1 https://github.com/amule-project/amule
