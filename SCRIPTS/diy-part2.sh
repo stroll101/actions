@@ -23,12 +23,12 @@ mkdir package/community
 pushd package/community
 
 # Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
-rm -rf ../lean/luci-app-kodexplorer
+#git clone --depth=1 https://github.com/Lienol/openwrt-package
+#rm -rf ../lean/luci-app-kodexplorer
 
 # Add kenzo small-package
-#git clone --depth=1 https://github.com/kenzok8/small-package
-#rm -rf ../lean/luci-app-kodexplorer
+git clone --depth=1 https://github.com/kenzok8/small-package
+rm -rf ../lean/luci-app-kodexplorer
 
 # Add ucode (提交不完整)
 svn co https://github.com/openwrt/openwrt/tree/master/package/utils/ucode
