@@ -26,7 +26,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: configs/raspberrypi4.config
-  DIY_P1_SH: SCRIPTS/diy-part1.sh
+  #DIY_P1_SH: SCRIPTS/diy-part1.sh
   DIY_P2_SH: SCRIPTS/diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -66,9 +66,9 @@ jobs:
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
+        chmod +x 
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
+        sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
