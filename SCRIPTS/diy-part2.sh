@@ -31,8 +31,7 @@ rm -rf ../lean/luci-app-kodexplorer
 #rm -rf ../lean/luci-app-kodexplorer
 
 # Add baidupcs-web
-svn co https://github.com/kenzok8/small-package/tree/main/luci-app-baidupcs-web
-svn co https://github.com/kenzok8/small-package/luci-app-baidupcs-web
+#svn co https://github.com/kenzok8/small-package/tree/main/luci-app-baidupcs-web
 
 # Add ucode (提交不完整)
 #svn co https://github.com/openwrt/openwrt/tree/master/package/utils/ucode
