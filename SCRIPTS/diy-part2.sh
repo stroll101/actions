@@ -23,8 +23,8 @@ mkdir package/community
 pushd package/community
 
 # Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
-rm -rf ../lean/luci-app-kodexplorer
+#git clone --depth=1 https://github.com/Lienol/openwrt-package
+#rm -rf ../lean/luci-app-kodexplorer
 
 # Add kenzo small-package
 #git clone --depth=1 https://github.com/kenzok8/small-package
@@ -68,7 +68,7 @@ git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 
 # Add luci-app-adguardhome
 #git clone --depth=1 https://github.com/SuLingGG/luci-app-adguardhome
-git clone --depth=1 https://github.com/kenzok8/small-package/tree/main/luci-app-adguardhome
+#git clone --depth=1 https://github.com/kenzok8/small-package/tree/main/luci-app-adguardhome
 
 # Add luci-app-diskman
 git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman
