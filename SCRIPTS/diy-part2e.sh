@@ -22,5 +22,20 @@ popd
 mkdir package/community
 pushd package/community
 
+# Add luci-app-oaf
+git clone --depth=1 https://github.com/destan19/OpenAppFilter -b oaf-3.0.1
+popd
+
+# Mod zzz-default-settings
+pushd package/emortal/default-settings/files
+sed -i '/http/d' zzz-default-settings
+sed -i '/openwrt_luci/d' zzz-default-settings
+popd
+
+# Fix mt76 wireless driver
+pushd package/kernel/mt76
+sed -i '/mt7662u_rom_patch.bin/a\\techo mt76-usb disable_usb_sg=1 > $\(1\)\/etc\/modules.d\/mt76-usb' Makefile
+popd
+
 # Change default shell to zsh
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
