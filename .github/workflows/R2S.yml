@@ -26,8 +26,8 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: configs/R2S.config
-  DIY_P1_SH: SCRIPTS/diy-part1.sh
-  DIY_P2_SH: SCRIPTS/diy-part2e.sh
+  DIY_P1_SH: SCRIPTS/diy-part1a.sh
+  DIY_P2_SH: SCRIPTS/diy-part2a.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
