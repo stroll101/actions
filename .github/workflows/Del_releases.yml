@@ -28,6 +28,6 @@ jobs:
       with:
         repo: stroll101/actions # defaults to current repo
         keep_latest: 75
-        delete_tags: "" # defaults to ""
+        delete_tags: "Pi4_Self" # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
