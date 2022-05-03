@@ -27,7 +27,7 @@ jobs:
     - uses: dev-drprasad/delete-older-releases@v0.2.0
       with:
         repo: stroll101/actions # defaults to current repo
-        keep_latest: 75
+        keep_latest: 15
         delete_tags: Self # defaults to ""
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
