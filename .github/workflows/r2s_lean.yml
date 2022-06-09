@@ -56,7 +56,7 @@ jobs:
       - name: Assemble Artifact
         id: assemble_artifact
         run: |
-          #gzip friendlywrt-*/out/*.img
+          gzip friendlywrt-*/out/*.img
           #rm -rf ./artifact/ && mkdir -p ./artifact/   
           #mv friendlywrt-*/out/*img.gz ./artifact/
           #cd ./artifact/
