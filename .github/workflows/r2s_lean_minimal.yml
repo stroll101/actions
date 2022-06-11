@@ -6,8 +6,8 @@ on:
     branches: [ master ]
     paths:
       - '.github/workflows/r2s_lean_minimal.yml'
-  schedule:
-    - cron: '35 17 * * *'
+  #schedule:
+    #- cron: '35 17 * * *'
 
 jobs:
 
