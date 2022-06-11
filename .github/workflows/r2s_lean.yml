@@ -56,11 +56,11 @@ jobs:
       - name: Assemble Artifact
         id: assemble_artifact
         run: |
-          #gzip friendlywrt-*/out/*.img
-          #rm -rf ./artifact/ && mkdir -p ./artifact/   
-          #mv friendlywrt-*/out/*img.gz ./artifact/
-          #cd ./artifact/
-          #md5sum *img.gz > md5sum.txt
+          gzip friendlywrt-*/out/*.img
+          rm -rf ./artifact/ && mkdir -p ./artifact/   
+          mv friendlywrt-*/out/*img.gz ./artifact/
+          cd ./artifact/
+          md5sum *img.gz > md5sum.txt
           cd ..
           zip -r artifact.zip ./artifact/
           release_tag="R2S-Lean-$(date +%Y-%m-%d-%H%M)"
