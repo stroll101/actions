@@ -15,3 +15,6 @@
 
 # Add a feed source
 sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
+
+########### 更改大雕源码（可选）###########
+sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/x86/Makefile
