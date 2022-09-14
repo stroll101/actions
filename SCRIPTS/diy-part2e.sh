@@ -22,6 +22,10 @@ popd
 mkdir package/community
 pushd package/community
 
+# Add date version
+export DATE_VERSION=$(date -d "$(rdate -n -4 -p pool.ntp.org)" +'%Y-%m-%d')
+sed -i "s/%C/%C (${DATE_VERSION})/g" package/base-files/files/etc/openwrt_release
+
 # Add OpenAppFilter  # Add luci-app-oaf
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
