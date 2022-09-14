@@ -25,10 +25,6 @@ pushd package/community
 # Add OpenAppFilter  # Add luci-app-oaf
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
-# Add date version
-export DATE_VERSION=$(date -d "$(rdate -n -4 -p pool.ntp.org)" +'%Y-%m-%d')
-sed -i "s/%C/%C (${DATE_VERSION})/g" package/base-files/files/etc/openwrt_release
-
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
