@@ -128,13 +128,9 @@ git clone --depth=1 https://github.com/NateLol/luci-app-oled
 svn co https://github.com/openwrt/packages/trunk/utils/apk
 popd
 
-# Mod zzz-default-settings
+# Mod zzz-default-settings  # Set DISTRIB_REVISION
 pushd package/lean/default-settings/files
-sed -i '/http/d' zzz-default-settings
-sed -i '/18.06/d' zzz-default-settings
-export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
-export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
-sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
+sed -i "s/OpenWrt /Deng Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 popd
 
 # Fix libssh
