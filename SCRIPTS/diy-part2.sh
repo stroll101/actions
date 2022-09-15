@@ -129,9 +129,7 @@ svn co https://github.com/openwrt/packages/trunk/utils/apk
 popd
 
 # Mod zzz-default-settings  # Set DISTRIB_REVISION
-pushd package/lean/default-settings/files
 sed -i "s/OpenWrt /Deng Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-popd
 
 # Fix libssh
 pushd feeds/packages/libs
