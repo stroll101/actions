@@ -25,8 +25,10 @@ pushd package/community
 # Add OpenAppFilter  # Add luci-app-oaf
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
-# Set DISTRIB_REVISION
+# Mod zzz-default-settings  # Set DISTRIB_REVISION
+pushd package/lean/default-settings/files
 sed -i "s/OpenWrt /Deng Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+popd
 
 # Fix mt76 wireless driver
 pushd package/kernel/mt76
