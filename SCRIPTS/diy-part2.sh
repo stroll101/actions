@@ -33,9 +33,6 @@ pushd package/community
 # Add baidupcs-web
 #svn co https://github.com/kenzok8/small-package/tree/main/luci-app-baidupcs-web
 
-# Add ucode (提交不完整)
-#svn co https://github.com/openwrt/openwrt/tree/master/package/utils/ucode
-
 # Add libcryptopp 8.6
 #git clone --depth=1  https://github.com/weidai11/cryptopp.git
 
@@ -44,10 +41,6 @@ pushd package/community
 
 # Add luci-app-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
-
-# Add luci-app-vssr <M>
-# git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
-# git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr
 
 # Add mentohust & luci-app-mentohust
 git clone --depth=1 https://github.com/BoringCat/luci-app-mentohust
@@ -83,23 +76,9 @@ cp luci-app-diskman/Parted.Makefile parted/Makefile
 # Add luci-app-gowebdav
 git clone --depth=1 https://github.com/project-openwrt/openwrt-gowebdav
 
-# Add luci-theme-argon
-# git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-# git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
-# rm -rf ../lean/luci-theme-argon
-
 # Add tmate
 git clone --depth=1 https://github.com/project-openwrt/openwrt-tmate
 
-# Add subconverter
-git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
-
-# Add gotop
-# svn co https://github.com/project-openwrt/openwrt/tree/master/package/ctcgfw/gotop
-
-# Add smartdns
-# svn co https://github.com/pymumu/smartdns/trunk/package/openwrt ../smartdns
-# svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns ../luci-app-smartdns
 
 # Add luci-udptools
 git clone --depth=1 https://github.com/zcy85611/openwrt-luci-kcp-udp
@@ -110,26 +89,9 @@ git clone --depth=1 https://github.com/destan19/OpenAppFilter
 # Add luci-app-oled (R2S Only)
 git clone --depth=1 https://github.com/NateLol/luci-app-oled
 
-# Add extra wireless drivers
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8812au-ac
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8821cu
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8188eu
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8192du
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl88x2bu
-
-# Add extra wireless drivers
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/kernel/rtl8812au-ac
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/kernel/rtl8821cu
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/kernel/rtl8188eu
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/kernel/rtl8192du
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/kernel/rtl88x2bu
-
 # Add apk (Apk Packages Manager)
 svn co https://github.com/openwrt/packages/trunk/utils/apk
 popd
-
-# Mod zzz-default-settings  # Set DISTRIB_REVISION
-sed -i "s/OpenWrt /Deng Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Fix libssh
 pushd feeds/packages/libs
@@ -159,6 +121,3 @@ git clone https://github.com/openwrt-dev/po2lmo.git
 pushd po2lmo
 make && sudo make install
 popd
-
-# Change default shell to zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
