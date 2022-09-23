@@ -12,7 +12,7 @@ name: raspberrypi4_self
 
 on:
   schedule:
-    - cron: 0 */10 * * *
+    - cron: '10 20 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
