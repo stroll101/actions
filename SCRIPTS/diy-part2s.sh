@@ -24,6 +24,7 @@ pushd package/community
 
 # Add OpenAppFilter  # Add luci-app-oaf
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
+popd
 
 # Fix mt76 wireless driver
 # pushd package/kernel/mt76
