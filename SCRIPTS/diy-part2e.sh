@@ -32,7 +32,7 @@ pushd package/community
 # popd
 
 # Test kernel 5.15
-# sed -i 's/5.19/5.15/g' target/linux/x86/Makefile
+sed -i 's/5.19/5.15/g' target/linux/x86/Makefile
 
 # Modify default IP
 # sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
