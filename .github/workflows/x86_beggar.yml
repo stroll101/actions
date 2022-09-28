@@ -144,7 +144,7 @@ jobs:
         rm -rf openwrt-x86-64-generic-kernel.bin
         rm -rf openwrt-x86-64-generic-rootfs.tar.gz
         rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
-        rm -rf openwrt-x86-64-generic-squashfs-combined-efi.vmdk
+        # rm -rf openwrt-x86-64-generic-squashfs-combined-efi.vmdk
         rm -rf openwrt-x86-64-generic.manifest
         mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz beggar-x86-64-squashfs-efi.img.gz
         popd
@@ -159,10 +159,7 @@ jobs:
           echo "::set-output name=release_date::$(date +"x86_beggar-%Y.%m.%d")"
           touch release.txt
           echo "后台地址：192.168.2.1
-                full=全插件
-                docker=带docker
-                slim=精简版
-                beggar=乞丐版" >> release.txt
+                beggar" >> release.txt
           echo "::set-output name=status::success"
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
