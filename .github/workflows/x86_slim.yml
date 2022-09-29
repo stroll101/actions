@@ -161,8 +161,8 @@ jobs:
           echo "::set-output name=release_tag::$(date +"x86_slim-%Y.%m.%d")-Lean1"
           echo "::set-output name=release_date::$(date +"x86_slim-%Y.%m.%d")"
           touch release.txt
-          echo "后台地址：192.168.2.1
-                beggar" >> release.txt
+          echo "192.168.2.1
+                slim" >> release.txt
           echo "::set-output name=status::success"
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
