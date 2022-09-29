@@ -49,6 +49,7 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
+        
     - name: Update Feeds
       id: update
       run: |
@@ -61,10 +62,11 @@ jobs:
         git clone --depth=1 https://github.com/coolsnowwolf/luci customfeeds/luci
         chmod +x ../SCRIPTS/*.sh
         ../SCRIPTS/hook-feeds.sh
+        
     - name: Install Feeds
       run: |
         cd $OPENWRTROOT
-        ./scripts/feeds install -a
+        ./SCRIPTS/feeds install -a
         
     - name: Load Custom Configuration
       run: |
