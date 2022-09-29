@@ -18,7 +18,28 @@ rm -rf openwrt-package/verysync
 rm -rf openwrt-package/luci-app-verysync
 
 # Add luci-app-ssr-plus
-git clone --depth=1 https://github.com/fw876/helloworld
+# git clone --depth=1 https://github.com/fw876/helloworld
+git clone --depth=1 https://github.com/DHDAXCW/helloworld
+# Add luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
+
+# Add luci-app-unblockneteasemusic
+rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+
+# Add luci-app-vssr <M>
+git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
+git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr
+
+# Add luci-proto-minieap
+git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
+
+# Add luci-app-onliner (need luci-app-nlbwmon)
+git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
+
+# Add luci-app-adguardhome
+svn co https://github.com/Lienol/openwrt-package/branches/other/luci-app-adguardhome
 
 # Add ddnsto & linkease
 svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto
@@ -47,8 +68,20 @@ rm -rf ../../customfeeds/luci/themes/luci-theme-argon
 rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/data/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
+# Add subconverter
+git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
+
 # alist
 git clone https://github.com/sbwml/openwrt-alist --depth=1
+
+# Add luci-app-smartdns & smartdns
+svn co https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
+
+# Add apk (Apk Packages Manager)
+svn co https://github.com/openwrt/packages/trunk/utils/apk
+
+# Add OpenAppFilter
+git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
 # Add luci-aliyundrive-webdav
 rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
@@ -80,7 +113,7 @@ popd
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_generate
 
 # Test kernel 5.19
 # sed -i 's/5.15/5.19/g' target/linux/x86/Makefile
