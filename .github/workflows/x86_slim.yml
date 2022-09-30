@@ -124,8 +124,7 @@ jobs:
         popd
         make checksum
         mv bin/targets/x86/64/sha256sums bin/targets/x86/64/beggar-sha256sums
-        echo "::set-output name=GENERATE_STATUS::success"
-        
+        echo "::set-output name=GENERATE_STATUS::success"        
         
     - name: Generate release tag
       id: tag
