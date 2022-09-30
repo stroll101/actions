@@ -49,7 +49,6 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        
     - name: Update Feeds
       id: update
       run: |
@@ -62,7 +61,6 @@ jobs:
         git clone --depth=1 https://github.com/coolsnowwolf/luci customfeeds/luci
         chmod +x ../SCRIPTS/*.sh
         ../SCRIPTS/hook-feeds.sh
-        
     - name: Install Feeds
       run: |
         cd $OPENWRTROOT
@@ -91,6 +89,34 @@ jobs:
     - name: Compile Packages
       id: compile
       run: |
+        cd $OPENWRTROOT
+        echo -e "$(nproc) thread compile"
+        make tools/compile -j$(nproc) || make tools/compile -j72
+        make toolchain/compile -j$(nproc) || make toolchain/compile -j72
+        make target/compile -j$(nproc) || make target/compile -j72 IGNORE_ERRORS=1
+        make diffconfig
+        make package/compile -j$(nproc) IGNORE_ERRORS=1 || make package/compile -j72 IGNORE_ERRORS=1
+        make package/index
+        cd $OPENWRTROOT/bin/packages/*
+        PLATFORM=$(basename `pwd`)
+        echo "PLATFORM=$PLATFORM" >> $GITHUB_ENV
+        echo "::set-output name=PLATFORM::$(echo $PLATFORM)"
+        cd $OPENWRTROOT/bin/targets/*
+        TARGET=$(basename `pwd`)
+        echo "TARGET=$TARGET" >> $GITHUB_ENV
+        echo "::set-output name=TARGET::$(echo $TARGET)"
+        cd *
+        SUBTARGET=$(basename `pwd`)
+        echo "SUBTARGET=$SUBTARGET" >> $GITHUB_ENV
+        echo "::set-output name=SUBTARGET::$(echo $SUBTARGET)"
+        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        echo "::set-output name=FIRMWARE::$(echo $PWD)"
+        echo "::set-output name=COMPILE_STATUS::success"
+        
+    - name: Generate Firmware
+      if: steps.compile.outputs.COMPILE_STATUS == 'success'
+      id: generate
+      run: |
         cd configs/opkg
         sed -i "s/subtarget/$SUBTARGET/g" distfeeds*.conf
         sed -i "s/target\//$TARGET\//g" distfeeds*.conf
@@ -118,20 +144,19 @@ jobs:
         rm -rf openwrt-x86-64-generic-kernel.bin
         rm -rf openwrt-x86-64-generic-rootfs.tar.gz
         rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
-        rm -rf openwrt-x86-64-generic-squashfs-combined-efi.img.gz
+        # rm -rf openwrt-x86-64-generic-squashfs-combined-efi.vmdk
         rm -rf openwrt-x86-64-generic.manifest
         mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz beggar-x86-64-squashfs-efi.img.gz
         popd
         make checksum
         mv bin/targets/x86/64/sha256sums bin/targets/x86/64/beggar-sha256sums
-        echo "::set-output name=GENERATE_STATUS::success"        
-        
+        echo "::set-output name=GENERATE_STATUS::success"
     - name: Generate release tag
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-          echo "::set-output name=release_tag::$(date +"x86_slim-%Y.%m.%d")-Lean1"
-          echo "::set-output name=release_date::$(date +"x86_slim-%Y.%m.%d")"
+          echo "::set-output name=release_tag::$(date +"x86_beggar-%Y.%m.%d")-Lean1"
+          echo "::set-output name=release_date::$(date +"x86_beggar-%Y.%m.%d")"
           touch release.txt
           echo "192.168.2.1
                 slim" >> release.txt
@@ -142,7 +167,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          name: ${{ steps.tag.outputs.release_date }} x86-64-Linux${{ steps.generate.outputs.kernel_version }}
+          name: ${{ steps.tag.outputs.release_date }} x86-64-Linux${{ steps.generate.outputs.kernel_version }} 固件
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
