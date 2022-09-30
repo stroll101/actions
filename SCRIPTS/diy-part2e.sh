@@ -22,6 +22,10 @@ popd
 mkdir package/community
 pushd package/community
 
+# Add aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
+
 # Add OpenAppFilter  # Add luci-app-oaf
 # git clone --depth=1 https://github.com/destan19/OpenAppFilter
 # popd
