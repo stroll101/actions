@@ -155,8 +155,8 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-          echo "::set-output name=release_tag::$(date +"x86_beggar-%Y.%m.%d")-Lean1"
-          echo "::set-output name=release_date::$(date +"x86_beggar-%Y.%m.%d")"
+          echo "::set-output name=release_tag::$(date +"x86_beggar-%Y.%m.%d-%H%M")-Lean1"
+          echo "::set-output name=release_date::$(date +"x86_beggar-%Y.%m.%d-%H%M")"
           touch release.txt
           echo "192.168.2.1
                 slim" >> release.txt
@@ -167,7 +167,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          name: ${{ steps.tag.outputs.release_date }} x86-64-Linux${{ steps.generate.outputs.kernel_version }} 固件
+          name: ${{ steps.tag.outputs.release_date }} x86-64-Linux${{ steps.generate.outputs.kernel_version }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
