@@ -11,8 +11,6 @@
 name: x86_slim
 
 on:
-  schedule:
-    - cron: '30 15 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
