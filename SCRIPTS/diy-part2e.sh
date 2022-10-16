@@ -35,8 +35,5 @@ svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-ali
 # sed -i '/mt7662u_rom_patch.bin/a\\techo mt76-usb disable_usb_sg=1 > $\(1\)\/etc\/modules.d\/mt76-usb' Makefile
 # popd
 
-# Test kernel 5.19
-sed -i 's/5.15/5.19/g' target/linux/x86/Makefile
-
 # 替换默认主题为 luci-theme-argon
 # sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
