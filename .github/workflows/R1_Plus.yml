@@ -26,7 +26,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: configs/R1_Plus.config
-  DIY_P1_SH: SCRIPTS/diy-part1.sh
+  DIY_P1_SH: SCRIPTS/diy-part1e.sh
   DIY_P2_SH: SCRIPTS/diy-part2e.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -82,6 +82,8 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
+        curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/poweroff.htm > ./feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm 
+        curl -fsSL  https://raw.githubusercontent.com/sirpdboy/other/master/patch/poweroff/system.lua > ./feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: SSH connection to Actions
