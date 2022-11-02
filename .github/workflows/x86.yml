@@ -27,7 +27,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: configs/x86x64.config
   DIY_P1_SH: SCRIPTS/diy-part1e.sh
-  DIY_P2_SH: SCRIPTS/diy-part2e.sh
+  DIY_P2_SH: SCRIPTS/diy-part2s.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
