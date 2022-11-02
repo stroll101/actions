@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Add luci-app-ssr-plus
 pushd package/lean
@@ -22,17 +22,18 @@ popd
 mkdir package/community
 pushd package/community
 
+# Add aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
+
 # Add OpenAppFilter  # Add luci-app-oaf
-git clone --depth=1 https://github.com/destan19/OpenAppFilter
-popd
+# git clone --depth=1 https://github.com/destan19/OpenAppFilter
+# popd
 
 # Fix mt76 wireless driver
 # pushd package/kernel/mt76
 # sed -i '/mt7662u_rom_patch.bin/a\\techo mt76-usb disable_usb_sg=1 > $\(1\)\/etc\/modules.d\/mt76-usb' Makefile
 # popd
-
-# Modify default IP
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # 替换默认主题为 luci-theme-argon
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
