@@ -17,4 +17,4 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
 
 ########### 更改大雕源码（可选）###########
-#sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' target/linux/bcm27xx/Makefile
+sed -i 's/KERNEL_PATCHVER:=6.0/KERNEL_PATCHVER:=5.15/g' target/linux/bcm27xx/Makefile
