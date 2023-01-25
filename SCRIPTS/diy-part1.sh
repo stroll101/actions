@@ -18,7 +18,8 @@ sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.
 # sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
 
 ########### 更改大雕源码（可选）###########
-# sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' target/linux/bcm27xx/Makefile
+sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.4/g' ./target/linux/bcm53xx/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' ./target/linux/bcm53xx/Makefile
 
 # Add luci-theme-argon
 # git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
