@@ -26,6 +26,11 @@ pushd package/community
 svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
 svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
 
+# Add luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
+svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
+
 # Add OpenAppFilter  # Add luci-app-oaf
 # git clone --depth=1 https://github.com/destan19/OpenAppFilter
 # popd
