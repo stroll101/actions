@@ -22,9 +22,6 @@ popd
 mkdir package/community
 pushd package/community
 
-# Add luci-app-adguardhome
-git clone --depth=1 https://github.com/kenzok8/small-package/tree/main/luci-app-adguardhome
-
 # Add aliyundrive-webdav
 svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
 svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
