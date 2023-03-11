@@ -110,7 +110,7 @@ jobs:
           [[ "${?}" -ne "0" ]] && echo -e "The armvirt file download failed!" && exit 1
           echo "status=success" >> ${GITHUB_OUTPUT}
       - name: Package OpenWrt Firmware
-        uses: ophub/flippy-openwrt-actions@main
+        uses: actions/upload-artifact@main
         if: ${{ steps.download.outputs.status }} == 'success' && !cancelled()
         env:
           OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
