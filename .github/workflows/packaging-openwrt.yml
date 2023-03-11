@@ -7,6 +7,8 @@
 name: Packaging OpenWrt
 
 on:
+  schedule:
+    - cron: 0 */12 * * *
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -41,7 +43,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "5.15.85"
+        default: "5.15.85_6.1.1"
         type: choice
         options:
           - 5.4.225_5.10.160_5.15.85
