@@ -8,7 +8,7 @@ name: Packaging OpenWrt
 
 on:
   schedule:
-    - cron: 0 */12 * * *
+    - cron: '20 20 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -18,40 +18,19 @@ on:
         default: "beikeyun"
         type: choice
         options:
-          - all
-          - qemu_vplus_beikeyun_l1pro_rock5b_h66k_h68k_h88k_r66s_r68s_e25
-          - s922x_s922x-n2_s905x3_s905x2_s912_s905d_s905
-          - qemu
-          - vplus
           - beikeyun
-          - l1pro
-          - rock5b
-          - h66k
-          - h68k
-          - h88k
-          - r66s
-          - r68s
-          - e25
-          - s922x
-          - s922x-n2
-          - s905x3
-          - s905x2
-          - s912
-          - s905d
-          - s905
-          - diy
       openwrt_kernel:
         description: "Select kernel version"
         required: false
         default: "5.15.85_6.1.1"
         type: choice
         options:
-          - 5.4.225_5.10.160_5.15.85
-          - 5.4.225_5.10.160
-          - 5.10.160_5.15.85
-          - 5.15.85_6.1.1
-          - 5.4.225
-          - 5.10.160
+#          - 5.4.225_5.10.160_5.15.85
+#          - 5.4.225_5.10.160
+#          - 5.10.160_5.15.85
+#          - 5.15.85_6.1.1
+#          - 5.4.225
+#          - 5.10.160
           - 5.15.85
           - 6.1.1
       auto_kernel:
