@@ -7,6 +7,8 @@
 name: Compile the kernel
 
 on:
+  schedule:
+    - cron: '18 20 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
