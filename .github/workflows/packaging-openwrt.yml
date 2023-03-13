@@ -13,12 +13,7 @@ on:
   workflow_dispatch:
     inputs:
       openwrt_soc:
-        description: "Select device board."
-        required: false
         default: "beikeyun"
-        type: choice
-        options:
-          - beikeyun
       openwrt_kernel:
         description: "Select kernel version"
         required: false
