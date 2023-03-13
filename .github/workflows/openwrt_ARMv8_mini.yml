@@ -16,7 +16,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   UPLOAD_FIRMWARE: false
-  UPLOAD_RELEASE: true
+  UPLOAD_RELEASE: false
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
   FILE_NAME: armv8_mini
