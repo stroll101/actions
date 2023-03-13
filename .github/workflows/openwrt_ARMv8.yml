@@ -26,7 +26,7 @@ jobs:
           sudo apt update && sudo apt install qemu-utils
           sudo sysctl vm.swappiness=0
           ulimit -SHn 65000 
-          curl -JLO  https://github.com/breakings/OpenWrt/releases/download/ARMv8/openwrt_rk3328_beikeyun_R23.3.3_k5.15.100-flippy-82+o.img.gz          
+          curl -JLO  https://github.com/breakings/OpenWrt/releases/download/armv8_mini/openwrt_rk3328_beikeyun_R23.3.3_k5.15.100-flippy-82+o.img.gz       
           mkdir -p $GITHUB_WORKSPACE/release
           mv openwrt_rk3328_beikeyun_R23.3.3_k5.15.100-flippy-82+o.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.3.3_k5.15.100-flippy-82+o.img.gz
           echo "strDate=$(TZ=UTC-8 date +%Y.%m.%d)" >> $GITHUB_ENV         
@@ -38,7 +38,7 @@ jobs:
           tag: ${{env.strDate}}
           file_glob: true
           overwrite: true
-          release_name: openwrt_ARMv8_${{env.strDate}} 
+          release_name: openwrt_ARMv8_mini_${{env.strDate}} 
           
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
