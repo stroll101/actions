@@ -1,8 +1,6 @@
 name: openwrt_ARMv8
 
 on:
-  schedule:
-    - cron: '20 02 * * *'
   repository_dispatch:
   workflow_dispatch:
     inputs:
