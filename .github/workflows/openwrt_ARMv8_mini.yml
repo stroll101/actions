@@ -82,11 +82,11 @@ jobs:
       with:
         name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
         allowUpdates: true
-#        removeArtifacts: true
+        removeArtifacts: false
         tag: ${{ env.FILE_NAME }}
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
-#        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
           - IP: 192.168.1.1  username: root  password: password
     - name: Delete workflow runs
