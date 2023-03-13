@@ -84,7 +84,7 @@ jobs:
         allowUpdates: true
         removeArtifacts: false
         tag: ${{ env.FILE_NAME }}
-        commit: main
+#        commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
