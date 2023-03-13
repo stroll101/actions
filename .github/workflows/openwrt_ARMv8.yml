@@ -81,8 +81,8 @@ jobs:
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
-        allowUpdates: false
-        removeArtifacts: true
+        allowUpdates: true
+        removeArtifacts: false
         tag: ${{ env.FILE_NAME }}
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
