@@ -1,4 +1,4 @@
-ame: openwrt_ARMv8
+name: openwrt_ARMv8
 
 on:
   schedule:
