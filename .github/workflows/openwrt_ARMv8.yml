@@ -89,7 +89,6 @@ jobs:
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
           - IP: 192.168.1.1  username: root  password: password
-          ${{ env.useVersionInfo }}
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
