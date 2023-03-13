@@ -82,7 +82,7 @@ jobs:
       with:
         name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
         allowUpdates: false
-        removeArtifacts: false
+        removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
