@@ -1,6 +1,5 @@
 name: beikeyun_mini
 on:
-  schedule:
   repository_dispatch:
   workflow_dispatch:
     inputs:
