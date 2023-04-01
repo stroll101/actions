@@ -1,0 +1,48 @@
+name: beikeyun_mini
+on:
+  schedule:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+
+jobs:
+  generate_firmware:
+    name: Generate firmware
+    runs-on: ubuntu-20.04
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Generate firmware
+        run: |
+          sudo apt update && sudo apt install qemu-utils
+          sudo sysctl vm.swappiness=0
+          ulimit -SHn 65000 
+          curl -JLO  https://github.com/breakings/OpenWrt/releases/download/armv8_mini/openwrt_rk3328_beikeyun_R23.3.3_k5.15.105-flippy-82+o.img.gz
+
+          mkdir -p $GITHUB_WORKSPACE/release
+          mv openwrt_rk3328_beikeyun_R23.3.3_k5.15.105-flippy-82+o.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.3.3_k5.15.105-flippy-82+o.img.gz   
+          echo "strDate=$(TZ=UTC-8 date +%Y.%m.%d)" >> $GITHUB_ENV         
+      - name: Upload release asset
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./release/*
+          tag: ${{env.strDate}}
+          file_glob: true
+          overwrite: true
+          release_name: beikeyun_mini_${{env.strDate}} 
+          
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 15
+          keep_minimum_runs: 11
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
