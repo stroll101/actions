@@ -40,7 +40,7 @@ jobs:
           tag: ${{env.strDate}}
           file_glob: true
           overwrite: true
-          release_name: beikeyun_mini_${{env.strDate}} 
+          release_name: beikeyun_${{env.strDate}} 
           
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
