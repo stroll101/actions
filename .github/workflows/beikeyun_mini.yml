@@ -24,13 +24,13 @@ jobs:
           sudo sysctl vm.swappiness=0
           ulimit -SHn 65000 
           curl -JLO  https://github.com/breakings/OpenWrt/releases/download/flippy_openwrt/openwrt_rk3328_beikeyun_R21.11.11_k5.4.157-flippy-66+o.7z
-          curl -JLO  https://github.com/breakings/OpenWrt/releases/download/ARMv8_mini_mini/openwrt_rk3328_beikeyun_R23.3.3_k5.15.105-flippy-82+o.img.gz
-          curl -JLO  https://github.com/breakings/OpenWrt/releases/download/ARMv8_mini/openwrt_rk3328_beikeyun_R23.3.3_k6.1.22-flippy-82+.img.gz
+          curl -JLO  https://github.com/breakings/OpenWrt/releases/download/ARMv8/openwrt_rk3328_beikeyun_R23.4.1_k5.15.106-flippy-82+o.img.gz
+          curl -JLO  https://github.com/breakings/OpenWrt/releases/download/ARMv8/openwrt_rk3328_beikeyun_R23.4.1_k6.1.22-flippy-82+.img.gz
 
           mkdir -p $GITHUB_WORKSPACE/release
           mv openwrt_rk3328_beikeyun_R21.11.11_k5.4.157-flippy-66+o.7z $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R21.11.11_k5.4.157-flippy-66+o.7z
-          mv openwrt_rk3328_beikeyun_R23.3.3_k5.15.105-flippy-82+o.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.3.3_k5.15.105-flippy-82+o.img.gz 
-          mv openwrt_rk3328_beikeyun_R23.3.3_k6.1.22-flippy-82+.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.3.3_k6.1.22-flippy-82+.img.gz
+          mv openwrt_rk3328_beikeyun_R23.4.1_k5.15.106-flippy-82+o.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.4.1_k5.15.106-flippy-82+o.img.gz
+          mv openwrt_rk3328_beikeyun_R23.4.1_k6.1.22-flippy-82+.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.4.1_k6.1.22-flippy-82+.img.gz
           echo "strDate=$(TZ=UTC-8 date +%Y.%m.%d)" >> $GITHUB_ENV         
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
