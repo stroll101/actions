@@ -29,8 +29,8 @@ jobs:
 
           mkdir -p $GITHUB_WORKSPACE/release
           mv openwrt_rk3328_beikeyun_R21.11.11_k5.4.157-flippy-66+o.7z $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R21.11.11_k5.4.157-flippy-66+o.7z
-          mv openwrt_rk3328_beikeyun_R23.4.1_k5.15.108-flippy-83+o.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.4.1_k5.15.107-flippy-83+o.img.gz
-          mv openwrt_rk3328_beikeyun_R23.4.1_k6.1.25-flippy-83+.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.4.1_k6.1.24-flippy-83+.img.gz
+          mv openwrt_rk3328_beikeyun_R23.4.1_k5.15.108-flippy-83+o.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.4.1_k5.15.108-flippy-83+o.img.gz
+          mv openwrt_rk3328_beikeyun_R23.4.1_k6.1.25-flippy-83+.img.gz $GITHUB_WORKSPACE/release/openwrt_rk3328_beikeyun_R23.4.1_k6.1.25-flippy-83+.img.gz
           echo "strDate=$(TZ=UTC-8 date +%Y.%m.%d)" >> $GITHUB_ENV         
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
